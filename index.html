@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KI Webdesign Agentur — Building Smarter and More Effective Websites</title>
+<meta name="description" content="How a KI Webdesign Agentur combines AI with web design principles — user-centered structure, visual hierarchy, accessibility, performance, and conversions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F6F3FB;
+    --bg-deep:#ECE5F7;
+    --ink:#1A1523;
+    --ink-soft:#544C63;
+    --plum:#241B33;
+    --plum-deep:#150F1E;
+    --violet:#7C5CFC;
+    --violet-deep:#5F3FE0;
+    --coral:#FF6F59;
+    --coral-deep:#E0533F;
+    --line: rgba(26,21,35,0.11);
+    --radius-lg: 36px;
+    --radius-md: 22px;
+    --radius-sm: 14px;
+    --shadow-soft: 0 20px 45px -20px rgba(26,21,35,0.28);
+    --shadow-press: inset 0 2px 6px rgba(26,21,35,0.06);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);font-family:'Inter', sans-serif;
+    font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased;
+  }
+  img,svg{display:block;max-width:100%;}
+  a{color:inherit;}
+  h1,h2,h3{
+    font-family:'Sora', sans-serif;font-weight:650;color:var(--ink);
+    margin:0 0 0.5em 0;letter-spacing:-0.015em;
+  }
+  p{margin:0 0 1.1em 0;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 6vw;}
+  ::selection{background:var(--violet);color:#fff;}
+  :focus-visible{outline:3px solid var(--violet-deep);outline-offset:3px;}
+
+  /* ===== HEADER ===== */
+  header.site{
+    width:100%;background:rgba(246,243,251,0.9);border-bottom:1px solid var(--line);
+    position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);
+  }
+  .nav-row{
+    max-width:1180px;margin:0 auto;padding:18px 6vw;
+    display:flex;align-items:center;justify-content:space-between;gap:24px;
+    flex-wrap:nowrap;white-space:nowrap;
+  }
+  .brand{
+    display:flex;align-items:center;gap:10px;font-family:'Sora', sans-serif;font-weight:700;
+    font-size:1.1rem;color:var(--ink);text-decoration:none;flex-shrink:0;letter-spacing:-0.01em;
+  }
+  .brand .mark{width:32px;height:32px;flex-shrink:0;}
+  nav.links{display:flex;align-items:center;gap:26px;font-size:0.9rem;font-weight:600;overflow-x:auto;scrollbar-width:none;}
+  nav.links::-webkit-scrollbar{display:none;}
+  nav.links a{
+    text-decoration:none;color:var(--ink-soft);padding:8px 2px;border-bottom:2px solid transparent;
+    transition:color .2s ease, border-color .2s ease;
+  }
+  nav.links a:hover{color:var(--violet-deep);border-color:var(--coral);}
+  .nav-cta{
+    flex-shrink:0;background:var(--plum);color:#fff!important;padding:10px 22px;border-radius:999px;
+    font-size:0.85rem;font-weight:700;text-decoration:none;transition:transform .2s ease, background .2s ease;
+  }
+  .nav-cta:hover{background:var(--violet-deep);transform:translateY(-1px);}
+
+  /* ===== HERO ===== */
+  .hero{position:relative;overflow:hidden;padding:88px 0 100px;}
+  .blob{position:absolute;z-index:0;}
+  .blob-1{top:-160px;right:-160px;width:600px;opacity:.42;}
+  .blob-2{bottom:-200px;left:-200px;width:480px;opacity:.32;}
+  .hero-inner{
+    position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:0 6vw;
+    display:grid;grid-template-columns:1.15fr 0.85fr;gap:56px;align-items:center;
+  }
+  h1.hero-title{font-size:clamp(1.9rem, 3.5vw, 2.95rem);line-height:1.14;margin-bottom:22px;margin-top:0;}
+  h1.hero-title em{font-style:normal;color:var(--violet-deep);}
+  .hero-sub{font-size:1.08rem;color:var(--ink-soft);max-width:50ch;margin-bottom:30px;}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--plum);color:#fff;padding:14px 26px;border-radius:999px;text-decoration:none;
+    font-weight:700;font-size:0.95rem;box-shadow:var(--shadow-soft);
+    transition:transform .2s ease, background .2s ease;display:inline-flex;align-items:center;gap:8px;
+  }
+  .btn-primary:hover{transform:translateY(-2px);background:var(--violet-deep);}
+  .btn-ghost{
+    background:transparent;color:var(--ink);padding:14px 22px;border-radius:999px;text-decoration:none;
+    font-weight:700;font-size:0.95rem;border:1.5px solid var(--line);
+    transition:border-color .2s ease, background .2s ease;
+  }
+  .btn-ghost:hover{border-color:var(--ink);background:rgba(26,21,35,0.04);}
+
+  /* Wireframe illustration */
+  .frame-stage{position:relative;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;}
+  .frame-disc{
+    position:absolute;width:86%;aspect-ratio:1/1;border-radius:46% 54% 50% 50% / 52% 48% 52% 48%;
+    background:linear-gradient(155deg, var(--plum) 0%, var(--plum-deep) 100%);
+    box-shadow:var(--shadow-soft);
+  }
+  .frame-svg{position:relative;z-index:2;width:80%;}
+
+  /* ===== SECTION SCAFFOLDING ===== */
+  section{padding:76px 0;}
+  .section-head{max-width:58ch;margin-bottom:36px;}
+  .section-head .kicker{
+    display:block;font-size:0.78rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--violet-deep);margin-bottom:12px;
+  }
+  .section-head h2{font-size:clamp(1.5rem, 2.4vw, 2.1rem);}
+  .lede{color:var(--ink-soft);font-size:1.02rem;}
+  hr.divider{border:none;border-top:1px solid var(--line);margin:0;}
+
+  .prose{max-width:74ch;}
+  .prose h2{font-size:clamp(1.4rem,2.2vw,1.9rem);margin-top:0;}
+  .prose h3{font-size:1.2rem;margin-top:1.6em;color:var(--violet-deep);}
+  .prose p{color:var(--ink-soft);}
+  .prose a.inline-link{
+    color:var(--violet-deep);font-weight:700;text-decoration:underline;
+    text-decoration-color:rgba(95,63,224,0.4);text-underline-offset:3px;
+  }
+  .prose a.inline-link:hover{text-decoration-color:var(--violet-deep);}
+
+  /* ===== FEATURE CARDS ===== */
+  .card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .feat-card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius-md);padding:30px 26px;
+    box-shadow:var(--shadow-press);transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .feat-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-soft);}
+  .feat-card .icon{
+    width:46px;height:46px;border-radius:12px;background:var(--plum);
+    display:flex;align-items:center;justify-content:center;margin-bottom:16px;
+  }
+  .feat-card .icon svg{stroke:var(--coral);width:22px;height:22px;}
+  .feat-card h3{font-size:1.04rem;margin-bottom:6px;}
+  .feat-card p{color:var(--ink-soft);font-size:0.94rem;margin-bottom:0;}
+
+  /* ===== CHECKLIST ===== */
+  .checklist{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 24px;list-style:none;margin:0;padding:0;}
+  .checklist li{
+    display:flex;align-items:center;gap:12px;padding:14px 18px;background:#fff;border:1px solid var(--line);
+    border-radius:14px;font-weight:600;font-size:0.94rem;
+  }
+  .checklist li .chk{
+    flex-shrink:0;width:24px;height:24px;border-radius:50%;background:var(--coral);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .checklist li .chk svg{width:13px;height:13px;stroke:#fff;stroke-width:3;}
+
+  /* ===== COMPARISON TABLE ===== */
+  .compare-wrap{background:var(--plum);border-radius:var(--radius-lg);padding:52px 6vw;color:#fff;}
+  .compare-wrap .section-head .kicker{color:var(--coral);}
+  .compare-wrap .section-head h2{color:#fff;}
+  .compare-wrap .lede{color:rgba(255,255,255,0.7);}
+  table.compare{width:100%;border-collapse:collapse;margin-top:28px;}
+  table.compare th, table.compare td{text-align:left;padding:16px 16px;font-size:0.92rem;}
+  table.compare thead th{
+    font-family:'Sora',sans-serif;font-weight:650;font-size:0.98rem;
+    border-bottom:2px solid rgba(255,255,255,0.2);
+  }
+  table.compare thead th:first-child{color:rgba(255,255,255,0.5);font-family:'Inter';font-weight:700;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.08em;}
+  table.compare thead th:nth-child(2){color:rgba(255,255,255,0.75);}
+  table.compare thead th:nth-child(3){color:var(--coral);}
+  table.compare tbody tr{border-bottom:1px solid rgba(255,255,255,0.1);}
+  table.compare tbody tr:last-child{border-bottom:none;}
+  table.compare tbody td:first-child{color:#fff;font-weight:700;font-family:'Sora',sans-serif;}
+  table.compare tbody td:nth-child(2){color:rgba(255,255,255,0.65);}
+  table.compare tbody td:nth-child(3){color:var(--coral);font-weight:600;}
+
+  /* ===== BUSINESS TYPE CARDS ===== */
+  .type-list{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+  .type-row{
+    display:flex;gap:18px;align-items:flex-start;background:#fff;
+    border:1px solid var(--line);border-radius:var(--radius-sm);padding:22px 24px;
+  }
+  .type-row .tag{
+    flex-shrink:0;width:40px;height:40px;border-radius:50%;background:var(--violet);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:650;
+  }
+  .type-row h3{font-size:1.02rem;margin-bottom:4px;}
+  .type-row p{font-size:0.92rem;color:var(--ink-soft);margin-bottom:0;}
+
+  /* ===== FAQ ===== */
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-item summary{
+    cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;
+    padding:22px 4px;font-family:'Sora',sans-serif;font-weight:650;font-size:1.02rem;
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary .plus{
+    flex-shrink:0;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--line);
+    display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--violet-deep);
+    transition:transform .25s ease;
+  }
+  .faq-item[open] summary .plus{transform:rotate(45deg);}
+  .faq-item .faq-a{padding:0 4px 22px 4px;color:var(--ink-soft);max-width:66ch;}
+
+  /* ===== CTA BAND ===== */
+  .cta-band{
+    background:var(--coral-deep);border-radius:var(--radius-lg);padding:56px 6vw;
+    display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;color:#fff;
+  }
+  .cta-band h2{color:#fff;font-size:clamp(1.4rem,2.4vw,2rem);margin-bottom:6px;}
+  .cta-band p{color:rgba(255,255,255,0.88);margin-bottom:0;}
+  .cta-band .btn-primary{background:var(--plum);}
+  .cta-band .btn-primary:hover{background:var(--plum-deep);}
+
+  /* ===== STEP ROWS ===== */
+  .step-row{display:flex;gap:18px;align-items:flex-start;margin-bottom:20px;}
+  .step-row .num{
+    flex-shrink:0;width:36px;height:36px;border-radius:10px;background:var(--plum);color:var(--coral);
+    display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:700;font-size:1rem;
+  }
+  .step-row p{margin-bottom:0;color:var(--ink-soft);}
+
+  /* ===== FOOTER ===== */
+  footer.site{background:var(--plum-deep);color:rgba(246,243,251,0.72);padding:60px 0 26px;margin-top:40px;}
+  .footer-grid{
+    display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px;
+    padding-bottom:40px;border-bottom:1px solid rgba(246,243,251,0.12);
+  }
+  .footer-brand{
+    display:flex;align-items:center;gap:10px;font-family:'Sora',sans-serif;font-weight:700;
+    font-size:1.05rem;color:#fff;margin-bottom:14px;
+  }
+  .footer-grid p{font-size:0.92rem;max-width:32ch;}
+  .footer-grid h4{color:#fff;font-family:'Inter';font-size:0.82rem;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:14px;}
+  .footer-grid ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;}
+  .footer-grid a{color:rgba(246,243,251,0.72);text-decoration:none;font-size:0.92rem;transition:color .2s ease;}
+  .footer-grid a:hover{color:var(--coral);}
+  .social-row{display:flex;gap:12px;margin-top:6px;}
+  .social-row a{
+    width:38px;height:38px;border-radius:50%;border:1px solid rgba(246,243,251,0.2);
+    display:flex;align-items:center;justify-content:center;transition:background .2s ease, border-color .2s ease;
+  }
+  .social-row a:hover{background:var(--violet);border-color:var(--violet);}
+  .social-row svg{width:17px;height:17px;stroke:#fff;}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:22px;font-size:0.82rem;flex-wrap:wrap;gap:12px;}
+  .footer-bottom a{color:rgba(246,243,251,0.6);text-decoration:none;}
+  .footer-bottom a:hover{color:var(--coral);}
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width:960px){
+    .hero-inner{grid-template-columns:1fr;}
+    .frame-stage{max-width:340px;margin:0 auto;}
+    .card-grid{grid-template-columns:1fr 1fr;}
+    .checklist{grid-template-columns:1fr;}
+    .type-list{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:640px){
+    .nav-row{padding:14px 5vw;}
+    nav.links{gap:14px;}
+    .nav-cta{display:none;}
+    .card-grid{grid-template-columns:1fr;}
+    table.compare{font-size:0.8rem;}
+    table.compare th, table.compare td{padding:10px 8px;}
+    .footer-grid{grid-template-columns:1fr;}
+    .cta-band{flex-direction:column;align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site">
+  <div class="nav-row">
+    <a href="#top" class="brand">
+      <svg class="mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="11" fill="#241B33"/>
+        <rect x="9" y="11" width="22" height="18" rx="2.5" stroke="#7C5CFC" stroke-width="2"/>
+        <line x1="9" y1="16" x2="31" y2="16" stroke="#FF6F59" stroke-width="2"/>
+        <circle cx="12.5" cy="13.5" r="1" fill="#FF6F59"/>
+      </svg>
+      KI Webdesign Agentur
+    </a>
+    <nav class="links">
+      <a href="#what-is">Approach</a>
+      <a href="#elements">Elements</a>
+      <a href="#types">Business Types</a>
+      <a href="#compare">AI vs Traditional</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a href="https://mentoraod.com/ki-webdesign-agentur/" class="nav-cta" target="_blank" rel="noopener">Get in Touch</a>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<div id="top" class="hero">
+  <svg class="blob blob-1" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#E3D9FA" d="M395,320Q370,390,290,410Q210,430,150,380Q90,330,90,255Q90,180,150,130Q210,80,290,100Q370,120,400,195Q430,270,395,320Z"/>
+  </svg>
+  <svg class="blob blob-2" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#FBDCD3" d="M380,300Q360,370,285,395Q210,420,145,375Q80,330,85,250Q90,170,155,120Q220,70,295,100Q370,130,390,205Q410,280,380,300Z"/>
+  </svg>
+  <div class="hero-inner">
+    <div>
+      <h1 class="hero-title">KI Webdesign Agentur: Building <em>Smarter and More Effective</em> Websites</h1>
+      <p class="hero-sub">
+        A business website is often the first place potential customers interact with a
+        company. Before calling, emailing, or buying, people visit a website to decide
+        whether it looks trustworthy.
+      </p>
+      <div class="hero-actions">
+        <a href="#what-is" class="btn-primary">Start Reading →</a>
+        <a href="#faq" class="btn-ghost">Jump to FAQ</a>
+      </div>
+    </div>
+    <div class="frame-stage">
+      <div class="frame-disc"></div>
+      <svg class="frame-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+        <rect x="45" y="55" width="210" height="150" rx="10" fill="#F6F3FB" opacity="0.95"/>
+        <circle cx="60" cy="70" r="3.5" fill="#FF6F59"/>
+        <circle cx="70" cy="70" r="3.5" fill="#7C5CFC"/>
+        <circle cx="80" cy="70" r="3.5" fill="#241B33"/>
+        <rect x="55" y="85" width="80" height="55" rx="6" fill="#E3D9FA"/>
+        <rect x="143" y="85" width="102" height="16" rx="4" fill="#241B33"/>
+        <rect x="143" y="108" width="102" height="10" rx="3" fill="#DCD3EE"/>
+        <rect x="143" y="124" width="80" height="10" rx="3" fill="#DCD3EE"/>
+        <rect x="55" y="150" width="190" height="10" rx="3" fill="#DCD3EE"/>
+        <rect x="55" y="170" width="60" height="20" rx="10" fill="#FF6F59"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== INTRO ===================== -->
+<section id="intro" style="padding-top:24px;">
+  <div class="wrap">
+    <div class="prose">
+      <p>A business website is often the first place where potential customers interact with a company. Before making a phone call, sending an inquiry, or purchasing a product, people frequently visit a website to understand what a business offers and whether it appears trustworthy.</p>
+      <p>This makes web design much more than choosing attractive colors or adding modern animations. A successful website needs to communicate clearly, work across different devices, load efficiently, guide visitors through information, and make important actions easy to find.</p>
+      <p>A <a class="inline-link" href="https://mentoraod.com/ki-webdesign-agentur/" target="_blank" rel="noopener">KI Webdesign Agentur</a> combines modern web design principles with artificial intelligence and digital tools to create websites that are more structured, adaptable, and focused on user needs. The role of AI can support parts of the design and development process, but the overall website still requires thoughtful strategy, human judgment, and careful implementation.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===================== WHAT IS IT ===================== -->
+<section id="what-is">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">The Basics</span>
+      <h2>What is a KI Webdesign Agentur?</h2>
+    </div>
+    <div class="prose">
+      <p>A KI Webdesign Agentur is a web design agency that incorporates artificial intelligence into selected parts of website planning, content workflows, design processes, research, or development.</p>
+      <p>The exact use of AI can vary from one project to another. It may assist with brainstorming, content organization, image concepts, user research, coding support, or repetitive production tasks.</p>
+      <p>However, AI should not be confused with the complete web design process. A professional website still requires decisions about branding, navigation, accessibility, content hierarchy, technical performance, and the needs of its target audience. The most useful approach is to use technology where it improves the process without allowing automation to replace important strategic decisions.</p>
+
+      <h3>Designing around the user</h3>
+      <p>A website should be created around what visitors need to accomplish. A visitor might want to find a service, understand pricing, compare options, contact a company, download information, or make a purchase. If the website makes these actions difficult, an attractive visual design cannot solve the underlying problem.</p>
+      <p>User-centered web design begins by identifying these goals and organizing the website accordingly. Navigation should be understandable, important information should not be buried under unnecessary clicks, headings should create a logical reading structure, and calls to action should appear where they make sense within the user's journey.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== VISUAL HIERARCHY + STRUCTURE + RESPONSIVE ===================== -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">The Fundamentals</span>
+      <h2>Visual hierarchy, structure, and responsive design</h2>
+    </div>
+    <div class="card-grid">
+      <div class="feat-card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h10M4 18h6"/></svg></div>
+        <h3>Visual hierarchy</h3>
+        <p>Size, spacing, typography, and contrast guide what visitors notice first, without making every element compete for attention.</p>
+      </div>
+      <div class="feat-card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="16" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/></svg></div>
+        <h3>Strong structure</h3>
+        <p>An information architecture that explains how pages relate, built with room to grow without rebuilding navigation.</p>
+      </div>
+      <div class="feat-card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="3" y="6" width="18" height="12" rx="2"/><rect x="8" y="20" width="8" height="1.5" rx="0.75"/></svg></div>
+        <h3>Responsive design</h3>
+        <p>Layouts that adapt across smartphones, tablets, and desktops — a full experience, not a reduced one.</p>
+      </div>
+    </div>
+    <div class="prose" style="margin-top:32px;">
+      <p>Visitors rarely read an entire website from top to bottom. They usually scan headings, images, highlighted information, buttons, and short sections before deciding where to focus. A well-designed homepage should make the company's purpose clear within a short amount of time.</p>
+      <p>The website needs an information structure that explains how pages relate to one another. A service-based company might have main service categories supported by detailed service pages, while an online store may organize products into logical categories and subcategories. This structure helps visitors navigate the website and provides a foundation for future growth.</p>
+      <p>People access websites from smartphones, tablets, laptops, and large desktop screens. Responsive design allows page layouts to adapt to different screen sizes — this includes more than shrinking desktop elements; navigation, typography, images, buttons, spacing, forms, and content sections may all need to change their arrangement depending on the available space.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===================== ACCESSIBILITY + TRUST ===================== -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Responsible Design</span>
+      <h2>Accessibility and building trust</h2>
+    </div>
+    <div class="prose">
+      <p>Accessibility is an important part of responsible web design. A website should aim to be usable by people with different abilities and different methods of interacting with digital content. Clear text, appropriate contrast, understandable navigation, keyboard accessibility, meaningful labels, and suitable alternative text can all contribute to a more accessible experience.</p>
+      <p>Accessibility also benefits general usability — clear navigation and readable content are useful to almost everyone, not only users with specific accessibility needs. A KI Webdesign Agentur can incorporate accessibility considerations during the design process rather than treating them as a final technical checklist.</p>
+
+      <h3>Building trust through design</h3>
+      <p>Visitors make quick judgments about websites. A professional visual identity, consistent typography, clear contact information, transparent business details, customer information, and well-organized content can contribute to a stronger sense of credibility.</p>
+      <p>Trust should not be created through design alone — claims should be accurate, information should be easy to verify, and business policies should be clearly presented. For service businesses especially, the website should answer practical questions before the visitor needs to ask them.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== AI-ASSISTED CREATION ===================== -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Where AI Fits In</span>
+      <h2>AI-assisted website creation</h2>
+    </div>
+    <div class="prose">
+      <p>Artificial intelligence can support web design in several ways. For example, AI tools may assist with generating initial content ideas, organizing information, suggesting layout concepts, creating code drafts, analyzing large amounts of feedback, or helping teams explore different design directions. These tools can reduce repetitive work and accelerate early stages of production.</p>
+      <p>However, automatically generated material should be reviewed before publication. AI-generated text can contain inaccuracies, repetitive language, or statements that do not accurately represent a business. Human review remains important for brand voice, factual accuracy, accessibility, and overall quality.</p>
+
+      <h3>Website speed and performance</h3>
+      <p>A beautiful website that takes too long to load can create a poor user experience. Performance can be influenced by image sizes, scripts, fonts, third-party services, hosting configuration, code quality, and page structure — design decisions should therefore consider performance from the beginning.</p>
+      <p>Large visual elements may be useful for branding, but they should be implemented carefully. Images can be appropriately sized and compressed, unnecessary scripts can be reduced, and page elements should be tested across different devices and connection conditions. Performance is not simply a technical issue — it directly affects how easily visitors can interact with a website.</p>
+
+      <h3>Designing for conversions</h3>
+      <p>A business website usually has a purpose beyond presenting information — generating inquiries, selling products, collecting registrations, scheduling appointments, or encouraging visitors to request a quote. Conversion-focused design makes these actions understandable without making the website feel aggressive.</p>
+      <p>A visitor should know what to do next when they are ready. Buttons and forms should use clear language, and unnecessary steps should be removed where possible.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===================== IMPORTANT ELEMENTS ===================== -->
+<section id="elements">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">The Checklist</span>
+      <h2>Important website design elements</h2>
+    </div>
+    <ul class="checklist">
+      <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><path d="M5 12l5 5 9-9"/></svg></span>Clear navigation</li>
+      <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><path d="M5 12l5 5 9-9"/></svg></span>Responsive layouts</li>
+      <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><path d="M5 12l5 5 9-9"/></svg></span>Consistent branding</li>
+      <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><path d="M5 12l5 5 9-9"/></svg></span>Strong content hierarchy</li>
+      <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><path d="M5 12l5 5 9-9"/></svg></span>Accessible typography</li>
+      <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><path d="M5 12l5 5 9-9"/></svg></span>Fast-loading pages</li>
+      <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><path d="M5 12l5 5 9-9"/></svg></span>Clear calls to action</li>
+      <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><path d="M5 12l5 5 9-9"/></svg></span>Simple contact forms</li>
+      <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><path d="M5 12l5 5 9-9"/></svg></span>Trust-building information</li>
+      <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><path d="M5 12l5 5 9-9"/></svg></span>Mobile-friendly interactions</li>
+    </ul>
+    <p class="lede" style="margin-top:24px;max-width:70ch;">Design cannot compensate for poor information. If a business provides excellent services but the website explains them using vague or confusing language, visitors may still leave without understanding the company's value — content should be planned alongside design, not filled in afterward.</p>
+  </div>
+</section>
+
+<!-- ===================== BUSINESS TYPES ===================== -->
+<section id="types">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Not One Template</span>
+      <h2>Web design for different business types</h2>
+      <p class="lede">The design should reflect the business model rather than following a universal template.</p>
+    </div>
+    <div class="type-list">
+      <div class="type-row">
+        <div class="tag">S</div>
+        <div><h3>Professional services</h3><p>Detailed service pages, trust signals, case studies, and straightforward contact options.</p></div>
+      </div>
+      <div class="type-row">
+        <div class="tag">E</div>
+        <div><h3>E-commerce</h3><p>Strong product presentation, category navigation, filters, shopping functionality, and efficient checkout.</p></div>
+      </div>
+      <div class="type-row">
+        <div class="tag">T</div>
+        <div><h3>Technology companies</h3><p>Explaining complicated products simply while supporting both technical and non-technical visitors.</p></div>
+      </div>
+      <div class="type-row">
+        <div class="tag">C</div>
+        <div><h3>Creative businesses</h3><p>Greater emphasis on visual presentation and portfolio work.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===================== MAINTENANCE ===================== -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">After Launch</span>
+      <h2>Website design and long-term maintenance</h2>
+    </div>
+    <div class="prose">
+      <p>Launching a website is not the end of web design. Content changes, business services evolve, software requires updates, and user expectations develop over time — a website that is never reviewed can gradually become outdated.</p>
+      <p>Regular maintenance can include checking forms, updating content, reviewing broken links, testing mobile layouts, improving performance, and monitoring security. A flexible website architecture makes these updates easier.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== COMPARISON ===================== -->
+<section id="compare">
+  <div class="wrap">
+    <div class="compare-wrap">
+      <div class="section-head" style="margin-bottom:0;">
+        <span class="kicker">Side by Side</span>
+        <h2>Comparing traditional and AI-assisted web design</h2>
+        <p class="lede">AI can increase efficiency, but it does not remove the need for design expertise.</p>
+      </div>
+      <table class="compare">
+        <thead>
+          <tr><th>Area</th><th>Traditional Process</th><th>AI-Assisted Process</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Research</td><td>Primarily manual</td><td>Human research supported by AI tools</td></tr>
+          <tr><td>Content ideas</td><td>Manually developed</td><td>AI can assist with brainstorming</td></tr>
+          <tr><td>Prototyping</td><td>Designer-led</td><td>AI can accelerate early concepts</td></tr>
+          <tr><td>Development</td><td>Human coding and tools</td><td>AI may assist with code generation</td></tr>
+          <tr><td>Quality control</td><td>Human review</td><td>Human review remains essential</td></tr>
+          <tr><td>Strategy</td><td>Human-led</td><td>Human-led with additional AI support</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===================== MISTAKES ===================== -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Avoid These</span>
+      <h2>Common web design mistakes</h2>
+    </div>
+    <div class="prose" style="max-width:64ch;">
+      <div class="step-row">
+        <div class="num">1</div>
+        <p>Placing too much information on the homepage — visitors can become overwhelmed when everything competes for attention.</p>
+      </div>
+      <div class="step-row">
+        <div class="num">2</div>
+        <p>Inconsistent design — different fonts, colors, button styles, and spacing patterns make a site feel unorganized.</p>
+      </div>
+      <div class="step-row">
+        <div class="num">3</div>
+        <p>Poor mobile optimization — a page that looks perfect on a large monitor but is hard to navigate on a phone.</p>
+      </div>
+      <div class="step-row">
+        <div class="num">4</div>
+        <p>Overly complicated forms — too many fields or steps and some visitors will simply abandon the process.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA BAND ===================== -->
+<section>
+  <div class="wrap">
+    <div class="cta-band">
+      <div>
+        <h2>Choosing a KI Webdesign Agentur</h2>
+        <p>Look beyond visual portfolios — ask how research, structure, accessibility, and AI use actually work together.</p>
+      </div>
+      <a href="https://mentoraod.com/ki-webdesign-agentur/" class="btn-primary" target="_blank" rel="noopener">Talk to the Agency →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHOOSING AN AGENCY (detail) ===================== -->
+<section>
+  <div class="wrap">
+    <div class="prose">
+      <p>Businesses should look beyond visual portfolios when selecting a web design partner. A strong agency should be able to explain how it approaches research, structure, design, content, development, accessibility, performance, and ongoing maintenance.</p>
+      <p>It is also useful to understand how AI is being used. Businesses should know which parts of the workflow are assisted by AI, where human review takes place, and how sensitive business information is handled. The goal should be a website that works for the business and its visitors, rather than a website created simply because a particular
+        <a class="inline-link" href="https://mentoraod.com/ki-webdesign-agentur/" target="_blank" rel="noopener">KI Webdesign Agentur</a>
+        technology is fashionable.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===================== CONCLUSION ===================== -->
+<section id="conclusion">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Wrapping Up</span>
+      <h2>Conclusion</h2>
+    </div>
+    <div class="prose">
+      <p>Modern web design is no longer limited to creating visually attractive pages. A successful website needs to combine structure, usability, responsive behavior, accessibility, performance, trustworthy information, and clear business objectives.</p>
+      <p>A KI Webdesign Agentur can bring artificial intelligence into this process to support research, ideation, content workflows, prototyping, and development. The technology can make certain stages faster, but the quality of the final website still depends on thoughtful planning and human oversight.</p>
+      <p>The strongest websites are built around real users. They make information easy to find, communicate a company's value clearly, work comfortably across devices, and provide straightforward paths toward important actions. They are also designed with future maintenance and growth in mind.</p>
+      <p>AI can become a useful part of this process, but it should serve the website's purpose rather than become the purpose itself. When intelligent tools are combined with sound design principles, careful development, accurate content, and continuous improvement, businesses can create digital experiences that are not only modern in appearance but also practical, accessible, and valuable for the people who use them.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===================== FAQ ===================== -->
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Common Questions</span>
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>What is a KI Webdesign Agentur?<span class="plus">+</span></summary>
+        <div class="faq-a">A KI Webdesign Agentur is a web design agency that uses artificial intelligence as part of selected design, content, research, or development workflows while combining those tools with human expertise.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Can AI create an entire website?<span class="plus">+</span></summary>
+        <div class="faq-a">AI can assist with many parts of website creation, including content ideas, design concepts, and coding assistance. However, professional websites still require human decisions regarding strategy, branding, accuracy, usability, accessibility, and quality.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Why is responsive web design important?<span class="plus">+</span></summary>
+        <div class="faq-a">Responsive design helps websites provide a usable experience across smartphones, tablets, laptops, and desktop screens.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How does web design affect conversions?<span class="plus">+</span></summary>
+        <div class="faq-a">Clear navigation, understandable content, visible calls to action, simple forms, and a logical customer journey can make it easier for visitors to complete desired actions.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Is website speed important?<span class="plus">+</span></summary>
+        <div class="faq-a">Yes. Slow pages can create a frustrating experience. Performance should be considered during design and development rather than only after a website is launched.</div>
+      </details>
+      <details class="faq-item">
+        <summary>What should a business look for in a web design agency?<span class="plus">+</span></summary>
+        <div class="faq-a">Businesses can consider design quality, development capabilities, communication, accessibility knowledge, performance practices, maintenance support, and how clearly the agency explains its process.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Does AI-generated website content need editing?<span class="plus">+</span></summary>
+        <div class="faq-a">Yes. AI-generated material should be reviewed for accuracy, relevance, brand consistency, originality, and clarity before publication.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <svg width="26" height="26" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="40" height="40" rx="11" fill="#7C5CFC"/>
+            <rect x="9" y="11" width="22" height="18" rx="2.5" stroke="#150F1E" stroke-width="2"/>
+            <line x1="9" y1="16" x2="31" y2="16" stroke="#150F1E" stroke-width="2"/>
+          </svg>
+          KI Webdesign Agentur
+        </div>
+        <p>Combining artificial intelligence with sound web design principles for real users.</p>
+        <div class="social-row">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7M7 7v.01M12 17v-4.5a2 2 0 0 1 4 0V17M12 12.5V17"/></svg></a>
+          <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 5l14 14M19 5 5 19"/></svg></a>
+          <a href="#" aria-label="Dribbble"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M4 9.5c5 1.6 10 1.6 16 0M8 4c3 4 4 9 3 16M15 4.5c-2 3-2.5 8 1 13.5"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Guide</h4>
+        <ul>
+          <li><a href="#what-is">Approach</a></li>
+          <li><a href="#elements">Elements</a></li>
+          <li><a href="#types">Business Types</a></li>
+          <li><a href="#compare">AI vs Traditional</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="https://mentoraod.com/ki-webdesign-agentur/" target="_blank" rel="noopener">Get in Touch</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#top">Back to Top</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Legal Notice</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 KI Webdesign Agentur. All rights reserved.</span>
+      <span><a href="#">Privacy Policy</a> · <a href="#">Terms of Service</a></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
+
+
